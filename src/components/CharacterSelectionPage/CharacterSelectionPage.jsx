@@ -3,16 +3,18 @@ import { useDispatch, useSelector } from 'react-redux';
 
 function CharacterSelectionPage() {
     const dispatch = useDispatch();
-    const accessLevel = useSelector(store => store.user.access_level);
+    const user = useSelector(store => store.user);
     const characterList = useSelector(store => store.characterList);
 
     const fetchCharacters = () => {
+        // clear it out on page load
+        dispatch({type: 'CLEAR_CHARACTER_LIST'});
         // If I'm the gamemaster, I get to see all the characters
-        if (accessLevel === 1) { // accessLevel 1 = gamemaster
+        if (user.access_level === 1) { // accessLevel 1 = gamemaster
             dispatch({type: 'FETCH_ALL_CHARACTERS'});
         } else {
             // Otherwise, I can see the characters matching my user id
-            // TODO: This dispatch
+            dispatch({type: 'FETCH_USERS_CHARACTERS', payload: user.id});
         }
     }
 
