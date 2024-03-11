@@ -20,6 +20,8 @@ import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 
+import CharacterSelectionPage from '../CharacterSelectionPage/CharacterSelectionPage';
+
 import './App.css';
 
 function App() {
@@ -53,11 +55,11 @@ function App() {
             If the user is not logged in, the ProtectedRoute will show the LoginPage (component).
             Even though it seems like they are different pages, the user is always on localhost:5173/user */}
           <ProtectedRoute
-            // logged in shows UserPage else shows LoginPage
+            // logged in shows CharacterSelectionPage else shows LoginPage
             exact
-            path="/user"
+            path="/character-selection"
           >
-            <UserPage />
+            <CharacterSelectionPage />
           </ProtectedRoute>
 
           <ProtectedRoute
@@ -74,8 +76,8 @@ function App() {
           >
             {user.id ?
               // If the user is already logged in, 
-              // redirect to the /user page
-              <Redirect to="/user" />
+              // redirect to the /character-selection page
+              <Redirect to="/character-selection" />
               :
               // Otherwise, show the login page
               <LoginPage />
@@ -88,8 +90,8 @@ function App() {
           >
             {user.id ?
               // If the user is already logged in, 
-              // redirect them to the /user page
-              <Redirect to="/user" />
+              // redirect them to the /character-selection page
+              <Redirect to="/character-selection" />
               :
               // Otherwise, show the registration page
               <RegisterPage />
@@ -102,8 +104,8 @@ function App() {
           >
             {user.id ?
               // If the user is already logged in, 
-              // redirect them to the /user page
-              <Redirect to="/user" />
+              // redirect them to the /character-selection page
+              <Redirect to="/character-selection" />
               :
               // Otherwise, show the Landing page
               <LandingPage />
