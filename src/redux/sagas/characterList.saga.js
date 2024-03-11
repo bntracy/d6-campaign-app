@@ -9,16 +9,16 @@ function* fetchAllCharacters() {
       headers: { 'Content-Type': 'application/json' },
       withCredentials: true,
     };
-    const selectionResponse = yield axios.get('/selection', config);
-    yield put({type: 'SET_CHARACTERS', payload: selectionResponse.data});
+    const selectionResponse = yield axios.get('/character-list', config);
+    yield put({type: 'SET_CHARACTER_LIST', payload: selectionResponse.data});
   }
   catch (error) {
     console.log('Error fetching all characters', error);
   }
 }
 
-function* selectionSaga() {
+function* characterListSaga() {
     yield takeLatest('FETCH_ALL_CHARACTERS', fetchAllCharacters);
   }
   
-  export default selectionSaga;
+  export default characterListSaga;

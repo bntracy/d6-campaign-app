@@ -8,7 +8,7 @@ const sessionMiddleware = require('./modules/session-middleware');
 const passport = require('./strategies/user.strategy');
 
 // Route Includes
-const selectionRouter = require('./routes/selection.router');
+const characterListRouter = require('./routes/characterList.router');
 const userRouter = require('./routes/user.router');
 
 // Express Middleware
@@ -24,7 +24,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // Routes
-app.use('/api/selection', selectionRouter);
+app.use('/api/character-list', characterListRouter);
 app.use('/api/user', userRouter);
 
 // Listen Server & Port
