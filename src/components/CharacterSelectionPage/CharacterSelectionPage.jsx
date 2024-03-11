@@ -3,7 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 
 function CharacterSelectionPage() {
     const dispatch = useDispatch();
-    const accessLevel = useSelector((store) => store.user.access_level);
+    const accessLevel = useSelector(store => store.user.access_level);
+    const characterList = useSelector(store => store.characterList);
 
     const fetchCharacters = () => {
         // If I'm the gamemaster, I get to see all the characters
@@ -19,6 +20,15 @@ function CharacterSelectionPage() {
 
     return <>
         <h1>Character Selection</h1>
+        {characterList.length > 0 && <table>
+                <tbody>
+                    {characterList.map(character => <tr key={character.id}>
+                        <td>{character.username}</td>
+                        <td>{character.character_name}</td>
+                        <td><button>Select</button></td>
+                    </tr>)}
+                </tbody>
+            </table>}
     </>;
 }
 
