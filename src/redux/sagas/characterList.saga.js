@@ -9,7 +9,7 @@ function* fetchAllCharacters() {
       headers: { 'Content-Type': 'application/json' },
       withCredentials: true,
     };
-    const selectionResponse = yield axios.get('/character-list', config);
+    const selectionResponse = yield axios.get('/api/character-list', config);
     yield put({type: 'SET_CHARACTER_LIST', payload: selectionResponse.data});
   }
   catch (error) {
