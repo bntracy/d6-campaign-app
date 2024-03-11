@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
 import errors from './errors.reducer';
+import selection from './selection.reducer';
 import user from './user.reducer';
 
 // rootReducer is the primary reducer for our entire project
@@ -11,6 +12,7 @@ import user from './user.reducer';
 const rootReducer = combineReducers({
   errors, // contains registrationMessage and loginMessage
   user, // will have an id and username if someone is logged in
+  selection // contains characters for the character selection screen
 });
 
 export default rootReducer;
