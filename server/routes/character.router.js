@@ -4,7 +4,6 @@ const { rejectUnauthenticated } = require('../modules/authentication-middleware'
 const router = express.Router();
 
 router.get('/', rejectUnauthenticated, (req, res) => {
-    console.log(req.query);
     const id = req.query.character_id;
     if (req.user.id === Number(req.query.associated_user_id) || req.user.access_level === 1) {
       const firstSqlQuery = `SELECT * FROM "character" WHERE id=$1;`;
@@ -56,5 +55,20 @@ router.get('/', rejectUnauthenticated, (req, res) => {
       res.sendStatus(403);
     }
   });
+
+  router.post('/', rejectUnauthenticated, (req, res) => {
+    const sqlQuery = `INSERT INTO "character" (character_name, user_id, species, gender, age, height, weight, physical_description)
+      VALUES ($1, $2, $3, $4, $5, $6, $7, $8)`;
+    pool.query(sqlQuery, [req.body.character_name, req.user.id,
+      req.body.species, req.body.gender,
+      req.body.age, req.body.height,
+      req.body.weight, req.body.physical_description])
+    .then(response => {
+      res.sendStatus(201);
+    }).catch(error => {
+      console.log('Error in POST', error);
+      res.sendStatus(500);
+    });
+  })
 
 module.exports = router;
