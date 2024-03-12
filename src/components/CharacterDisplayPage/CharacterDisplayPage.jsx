@@ -34,6 +34,11 @@ function CharacterDisplayPage() {
             <CharacterName />
             <CharacterOverview />
             <Attribute attribute="Dexterity" dice="dexterity_dice" bonus="dexterity_bonus" skills="dexterity_skills"/>
+            <Attribute attribute="Knowledge" dice="knowledge_dice" bonus="knowledge_bonus" skills="knowledge_skills"/>
+            <Attribute attribute="Mechanical" dice="mechanical_dice" bonus="mechanical_bonus" skills="mechanical_skills"/>
+            <Attribute attribute="Perception" dice="perception_dice" bonus="perception_bonus" skills="perception_skills"/>
+            <Attribute attribute="Strength" dice="strength_dice" bonus="strength_bonus" skills="strength_skills"/>
+            <Attribute attribute="Technical" dice="technical_dice" bonus="technical_bonus" skills="technical_skills"/>
         </>
         : <p>No character data</p>}
     </>;
