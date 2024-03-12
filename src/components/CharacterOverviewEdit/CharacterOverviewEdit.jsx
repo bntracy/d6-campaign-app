@@ -54,8 +54,8 @@ function CharacterOverviewEdit( {setIsEditing} ) {
                 <label>Physical Description: </label>
                 <input type="text" value={newPhysicalDescription} onChange={event => setNewPhysicalDescription(event.target.value)}/>
             </div>
-            <button>Save</button>
-            <button onClick={()=>setIsEditing(false)}>Cancel</button>
+            <button type="submit">Save</button>
+            <button type="button" onClick={()=>setIsEditing(false)}>Cancel</button>
         </form>
     </>;
 }
