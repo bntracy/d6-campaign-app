@@ -5,8 +5,8 @@ import { useHistory } from 'react-router-dom';
 function CharacterSelectionPage() {
     const dispatch = useDispatch();
     const history = useHistory();
-    const user = useSelector(store => store.user);
     const characterList = useSelector(store => store.characterList);
+    const user = useSelector(store => store.user);
 
     const fetchCharacters = () => {
         // clear it out on page load
