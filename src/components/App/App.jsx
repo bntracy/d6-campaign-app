@@ -22,8 +22,10 @@ import RegisterPage from '../RegisterPage/RegisterPage';
 
 import CharacterSelectionPage from '../CharacterSelectionPage/CharacterSelectionPage';
 import CharacterDisplayPage from '../CharacterDisplayPage/CharacterDisplayPage';
+import NewCharacter from '../NewCharacter/NewCharacter';
 
 import './App.css';
+
 
 function App() {
   const dispatch = useDispatch();
@@ -64,11 +66,19 @@ function App() {
           </ProtectedRoute>
 
           <ProtectedRoute
-            // logged in shows CharacterSelectionPage else shows LoginPage
+            // logged in shows CharacterDisplayPage else shows LoginPage
             exact
             path="/character/:id"
           >
             <CharacterDisplayPage />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows NewCharacter else shows LoginPage
+            exact
+            path="/new"
+          >
+            <NewCharacter />
           </ProtectedRoute>
 
           <ProtectedRoute

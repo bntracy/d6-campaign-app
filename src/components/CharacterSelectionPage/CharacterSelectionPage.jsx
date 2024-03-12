@@ -33,6 +33,7 @@ function CharacterSelectionPage() {
                     </tr>)}
                 </tbody>
             </table>}
+        <button onClick={()=>history.push('/new')}>Create New Character</button>
     </>;
 }
 
