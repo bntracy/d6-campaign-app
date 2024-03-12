@@ -2,9 +2,12 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
+import CharacterName from '../CharacterName/CharacterName';
+
 function CharacterDisplayPage() {
     const dispatch = useDispatch();
     const { id } = useParams();
+    const character = useSelector(store => store.character);
     const characterList = useSelector(store => store.characterList);
     const user = useSelector(store => store.user);
 
@@ -24,7 +27,11 @@ function CharacterDisplayPage() {
 
     useEffect(fetchSingleCharacter, []);
 
-    return <><p>No character data</p></>;
+    return <>
+        {character ?
+            <CharacterName />
+        : <p>No character data</p>}
+    </>;
 }
 
 export default CharacterDisplayPage;
