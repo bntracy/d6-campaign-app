@@ -14,16 +14,12 @@ function CharacterDisplayPage() {
         // check to be sure the user should have access to this character
         // find the user_id for the character
         const thisCharacterInList = characterList.find(element => element.id === Number(id));
-        if (thisCharacterInList?.user_id === user.id || user.access_level === 1) {
+        if (thisCharacterInList && (thisCharacterInList.user_id === user.id || user.access_level === 1)) {
             dispatch({type: 'FETCH_CHARACTER', payload: {
                 character_id: id,
                 associated_user_id: thisCharacterInList.user_id
             }});
         } 
-
-        // if (user.id === Number(id) || user.access_level === 1) {
-        //     dispatch({type: 'FETCH_CHARACTER', payload: id});
-        // }
     }
 
     useEffect(fetchSingleCharacter, []);
