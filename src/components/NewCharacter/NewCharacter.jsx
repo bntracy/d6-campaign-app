@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
@@ -11,9 +12,32 @@ function NewCharacter() {
     const [newWeight, setNewWeight] = useState('');
     const [newPhysicalDescription, setNewPhysicalDescription] = useState('');
 
+    const handleSubmit = event => {
+        event.preventDefault();
+        const config = {
+            headers: { 'Content-Type': 'application/json' },
+            withCredentials: true,
+          };
+        axios.post('/api/character', {
+            character_name: newCharacterName,
+            species: newSpecies,
+            gender: newGender,
+            age: newAge,
+            height: newHeight,
+            weight: newWeight,
+            physical_description: newPhysicalDescription
+        }, config)
+        .then(response => {
+            history.push('/character-selection');
+        })
+        .catch(error => {
+            console.log('Error in POST', error);
+        });
+    }
+
     return <>
         <h1>New Character</h1>
-        <form>
+        <form onSubmit={event => handleSubmit(event)}>
             <div>
                 <label>Character Name (required):</label>
                 <input type="text" value={newCharacterName} onChange={event => setNewCharacterName(event.target.value)} required />
