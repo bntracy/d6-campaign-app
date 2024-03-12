@@ -24,8 +24,8 @@ function CharacterNameEdit( {setIsEditing} ) {
                 <label>Character Name:</label>
                 <input type="text" required value={newName} onChange={event => setNewName(event.target.value)}/>
             </div>
-            <button>Save</button>
-            <button onClick={()=>setIsEditing(false)}>Cancel</button>
+            <button type="submit">Save</button>
+            <button type="button" onClick={()=>setIsEditing(false)}>Cancel</button>
         </form>
     </>;
 }
