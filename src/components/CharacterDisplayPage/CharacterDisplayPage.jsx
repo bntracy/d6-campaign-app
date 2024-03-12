@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
+import Attribute from '../Attribute/Attribute';
 import CharacterName from '../CharacterName/CharacterName';
 import CharacterOverview from '../CharacterOverview/CharacterOverview';
 
@@ -32,6 +33,7 @@ function CharacterDisplayPage() {
         {character.character_name ? <>
             <CharacterName />
             <CharacterOverview />
+            <Attribute attribute="Dexterity" dice="dexterity_dice" bonus="dexterity_bonus" skills="dexterity_skills"/>
         </>
         : <p>No character data</p>}
     </>;
