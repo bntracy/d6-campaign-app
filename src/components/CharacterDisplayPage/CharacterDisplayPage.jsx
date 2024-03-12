@@ -12,7 +12,7 @@ function CharacterDisplayPage() {
         dispatch({type: 'CLEAR_CHARACTER'});
         // check to be sure the user should have access to this character
         if (user.id === Number(id) || user.access_level === 1) {
-            console.log('show me the character');
+            dispatch({type: 'FETCH_CHARACTER', payload: id});
         }
     }
 
