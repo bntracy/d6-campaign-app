@@ -21,6 +21,7 @@ import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 
 import CharacterSelectionPage from '../CharacterSelectionPage/CharacterSelectionPage';
+import CharacterDisplayPage from '../CharacterDisplayPage/CharacterDisplayPage';
 
 import './App.css';
 
@@ -60,6 +61,14 @@ function App() {
             path="/character-selection"
           >
             <CharacterSelectionPage />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows CharacterSelectionPage else shows LoginPage
+            exact
+            path="/character/:id"
+          >
+            <CharacterDisplayPage />
           </ProtectedRoute>
 
           <ProtectedRoute

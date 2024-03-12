@@ -1,8 +1,10 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
 function CharacterSelectionPage() {
     const dispatch = useDispatch();
+    const history = useHistory();
     const user = useSelector(store => store.user);
     const characterList = useSelector(store => store.characterList);
 
@@ -27,7 +29,7 @@ function CharacterSelectionPage() {
                     {characterList.map(character => <tr key={character.id}>
                         <td>{character.username}</td>
                         <td>{character.character_name}</td>
-                        <td><button>Select</button></td>
+                        <td><button onClick={() => history.push(`/character/${character.id}`)}>Select</button></td>
                     </tr>)}
                 </tbody>
             </table>}
