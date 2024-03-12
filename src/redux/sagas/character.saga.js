@@ -6,12 +6,8 @@ function* fetchCharacter(action) {
         const config = {
             headers: { 'Content-Type': 'application/json' },
             withCredentials: true,
-            params: {
-                character_id: action.payload.character_id,
-                associated_user_id: action.payload.associated_user_id
-            }
           };
-        const characterResponse = yield axios.get('/api/character/', config);
+        const characterResponse = yield axios.get(`/api/character/${action.payload}`, config);
         yield put({type: 'SET_CHARACTER', payload: characterResponse.data});
     }
     catch (error) {
@@ -22,10 +18,7 @@ function* fetchCharacter(action) {
 function* updateCharacter(action) {
     try {
         yield axios.put('/api/character/', action.payload);
-        yield put({type: 'FETCH_CHARACTER', payload: {
-            character_id: action.payload.id,
-            associated_user_id: action.payload.user_id
-        }});
+        yield put({type: 'FETCH_CHARACTER', payload: action.payload.id});
     }
     catch (error) {
         console.log('Error updating character:', error);
