@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom';
 import Attribute from '../Attribute/Attribute';
 import CharacterName from '../CharacterName/CharacterName';
 import CharacterOverview from '../CharacterOverview/CharacterOverview';
+import OtherStats from '../OtherStats/OtherStats';
 
 function CharacterDisplayPage() {
     const dispatch = useDispatch();
@@ -39,6 +40,7 @@ function CharacterDisplayPage() {
             <Attribute attribute="Perception" dice="perception_dice" bonus="perception_bonus" skills="perception_skills"/>
             <Attribute attribute="Strength" dice="strength_dice" bonus="strength_bonus" skills="strength_skills"/>
             <Attribute attribute="Technical" dice="technical_dice" bonus="technical_bonus" skills="technical_skills"/>
+            <OtherStats />
         </>
         : <p>No character data</p>}
     </>;
