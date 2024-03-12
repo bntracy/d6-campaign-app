@@ -29,7 +29,7 @@ CREATE TABLE "character" (
     "perception_bonus" INTEGER,
     "strength_dice" INTEGER,
     "strength_bonus" INTEGER,
-    "techincal_dice" INTEGER,
+    "technical_dice" INTEGER,
     "technical_bonus" INTEGER,
     "move" INTEGER,
     "force_sensitive" BOOLEAN,
