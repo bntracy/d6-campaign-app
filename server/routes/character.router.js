@@ -69,6 +69,37 @@ router.get('/', rejectUnauthenticated, (req, res) => {
       console.log('Error in POST', error);
       res.sendStatus(500);
     });
-  })
+  });
+
+  router.put('/', rejectUnauthenticated, (req, res) => {
+    if (req.user.id === Number(req.body.user_id) || req.user.access_level === 1) {
+      const sqlQuery = `UPDATE "character"
+        SET "character_name"=$1, "species"=$2, "gender"=$3, "age"=$4, "height"=$5,
+        "weight"=$6, "physical_description"=$7, "dexterity_dice"=$8, "dexterity_bonus"=$9, "knowledge_dice"=$10,
+        "knowledge_bonus"=$11, "mechanical_dice"=$12, "mechanical_bonus"=$13, "perception_dice"=$14, "perception_bonus"=$15,
+        "strength_dice"=$16, "strength_bonus"=$17, "technical_dice"=$18, "technical_bonus"=$19, "move"=$20,
+        "force_sensitive"=$21, "force_points"=$22, "dark_side_points"=$23, "character_points"=$24, "special_abilities"=$25,
+        "equipment"=$26, "notes"=$27, "stunned"=$28, "wounded_1"=$29, "wounded_2"=$30,
+        "incapacitated"=$31, "mortally_wounded"=$32
+        WHERE id=$33;`;
+      pool.query(sqlQuery, [
+        req.body.character_name, req.body.species, req.body.gender, req.body.age, req.body.height,
+        req.body.weight, req.body.physical_description, req.body.dexterity_dice, req.body.dexterity_bonus, req.body.knowledge_dice,
+        req.body.knowledge_bonus, req.body.mechanical_dice, req.body.mechanical_bonus, req.body.perception_dice, req.body.perception_bonus,
+        req.body.strength_dice, req.body.strength_bonus, req.body.technical_dice, req.body.technical_bonus, req.body.move,
+        req.body.force_sensitive, req.body.force_points, req.body.dark_side_points, req.body.character_points, req.body.special_abilities,
+        req.body.equipment, req.body.notes, req.body.stunned, req.body.wounded_1, req.body.wounded_2,
+        req.body.incapacitated, req.body.mortally_wounded,
+        req.body.id])
+      .then(response => {
+        res.sendStatus(200);
+      }).catch(error => {
+        console.log('Error in PUT', error);
+        res.sendStatus(500);
+      });
+    } else {
+      res.sendStatus(403);
+    }
+  });
 
 module.exports = router;

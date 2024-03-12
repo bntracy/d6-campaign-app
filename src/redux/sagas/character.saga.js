@@ -19,8 +19,22 @@ function* fetchCharacter(action) {
     }
 }
 
+function* updateCharacter(action) {
+    try {
+        yield axios.put('/api/character/', action.payload);
+        yield put({type: 'FETCH_CHARACTER', payload: {
+            character_id: action.payload.id,
+            associated_user_id: action.payload.user_id
+        }});
+    }
+    catch (error) {
+        console.log('Error updating character:', error);
+    }
+}
+
 function* characterSaga() {
     yield takeLatest('FETCH_CHARACTER', fetchCharacter);
+    yield takeLatest('UPDATE_CHARACTER', updateCharacter);
 }
 
 export default characterSaga;
