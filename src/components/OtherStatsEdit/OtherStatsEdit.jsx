@@ -34,7 +34,7 @@ function OtherStatsEdit( {setIsEditing} ) {
             </div>
             <div>
                 <label>Force Sensitive? </label>
-                {/* TODO: handle Force Sensitive boolean */}
+                <input type="checkbox" checked={newForceSensitive} onChange={()=>setNewForceSensitive(!newForceSensitive)}/>
             </div>
             <div>
                 <label>Force Points: </label>
