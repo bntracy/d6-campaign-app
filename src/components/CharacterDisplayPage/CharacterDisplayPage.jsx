@@ -6,6 +6,7 @@ import Attribute from '../Attribute/Attribute';
 import CharacterName from '../CharacterName/CharacterName';
 import CharacterOverview from '../CharacterOverview/CharacterOverview';
 import OtherStats from '../OtherStats/OtherStats';
+import TextComponent from '../TextComponent/TextComponent';
 
 function CharacterDisplayPage() {
     const dispatch = useDispatch();
@@ -41,6 +42,9 @@ function CharacterDisplayPage() {
             <Attribute attribute="Strength" dice="strength_dice" bonus="strength_bonus" skills="strength_skills"/>
             <Attribute attribute="Technical" dice="technical_dice" bonus="technical_bonus" skills="technical_skills"/>
             <OtherStats />
+            <TextComponent property="special_abilities" label="Special Abilities"/>
+            <TextComponent property="equipment" label="Equipment"/>
+            <TextComponent property="notes" label="Notes"/>
         </>
         : <p>No character data</p>}
     </>;
