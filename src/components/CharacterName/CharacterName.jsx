@@ -9,7 +9,7 @@ function CharacterName() {
 
     return <>
         {isEditing ? <CharacterNameEdit setIsEditing={setIsEditing}/> : <>
-            <h2>{character.character_name}</h2>
+            <h1>{character.character_name}</h1>
             <button type="button" onClick={() => setIsEditing(true)}>Edit Name</button>
         </>}
     </>;
