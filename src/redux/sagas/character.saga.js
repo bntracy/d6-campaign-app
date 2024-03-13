@@ -17,7 +17,11 @@ function* fetchCharacter(action) {
 
 function* updateCharacter(action) {
     try {
-        yield axios.put('/api/character/', action.payload);
+        const config = {
+            headers: { 'Content-Type': 'application/json' },
+            withCredentials: true,
+          };
+        yield axios.put('/api/character/', action.payload, config);
         yield put({type: 'FETCH_CHARACTER', payload: action.payload.id});
     }
     catch (error) {

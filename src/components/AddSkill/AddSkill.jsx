@@ -1,13 +1,31 @@
 import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 function AddSkill( {attribute} ) {
+    const dispatch = useDispatch();
+    const character = useSelector(store => store.character);
     const [isAdding, setIsAdding] = useState(false);
     const [newSkillName, setNewSkillName] = useState('');
     const [newSkillDice, setNewSkillDice] = useState('');
     const [newSkillBonus, setNewSkillBonus] = useState('');
 
+    const handleSave = event => {
+        event.preventDefault();
+        dispatch({
+            type: 'ADD_SKILL',
+            payload: {
+                character_id: character.id,
+                skill_name: newSkillName,
+                associated_attribute: attribute,
+                skill_dice: newSkillDice,
+                skill_bonus: newSkillBonus
+            }
+        });
+        setIsAdding(false);
+    }
+
     return <>
-        {isAdding ? <><form>
+        {isAdding ? <><form onSubmit={event => handleSave(event)}>
             <div>
                 <label>Skill Name: </label>
                 <input type="text" value={newSkillName} onChange={event => setNewSkillName(event.target.value)}/>
