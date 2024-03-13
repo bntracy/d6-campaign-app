@@ -6,8 +6,7 @@ const router = express.Router();
 router.get('/:id', rejectUnauthenticated, (req, res) => {
     const id = req.params.id;
     const firstSqlQuery = `SELECT * FROM "character" WHERE id=$1;`;
-    const secondSqlQuery = `SELECT "id", "skill_name", "associated_attribute", "skill_dice", "skill_bonus"
-        FROM "skills" WHERE character_id=$1 ORDER BY "id";`;
+    const secondSqlQuery = `SELECT * FROM "skills" WHERE character_id=$1 ORDER BY "id";`;
       pool.query(firstSqlQuery, [id])
       .then(response => {
         const character = response.rows[0];

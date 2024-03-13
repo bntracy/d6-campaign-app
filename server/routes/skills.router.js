@@ -16,4 +16,16 @@ router.post('/', rejectUnauthenticated, (req, res) => {
     });
 });
 
+router.put('/', rejectUnauthenticated, (req, res) => {
+    const sqlQuery = `UPDATE "skills" SET "skill_name"=$1, "skill_dice"=$2, "skill_bonus"=$3
+        WHERE id=$4;`;
+    pool.query(sqlQuery, [req.body.skill_name, req.body.skill_dice, req.body.skill_bonus, req.body.id])
+    .then(response => {
+        res.sendStatus(200);
+    }).catch(error => {
+        console.log('Error in skills PUT', error);
+        res.sendStatus(500);
+    });
+});
+
 module.exports = router;
