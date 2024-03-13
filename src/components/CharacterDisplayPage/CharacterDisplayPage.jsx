@@ -9,6 +9,7 @@ import CharacterName from '../CharacterName/CharacterName';
 import CharacterOverview from '../CharacterOverview/CharacterOverview';
 import OtherStats from '../OtherStats/OtherStats';
 import TextComponent from '../TextComponent/TextComponent';
+import WoundedStatus from '../WoundedStatus/WoundedStatus';
 
 function CharacterDisplayPage() {
     const dispatch = useDispatch();
@@ -64,6 +65,7 @@ function CharacterDisplayPage() {
             <TextComponent property="special_abilities" label="Special Abilities"/>
             <TextComponent property="equipment" label="Equipment"/>
             <TextComponent property="notes" label="Notes"/>
+            <WoundedStatus />
             <div>
                 <button type="button" onClick={handleDelete}>Delete Character</button>
             </div>
