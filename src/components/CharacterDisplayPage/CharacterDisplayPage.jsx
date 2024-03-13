@@ -2,6 +2,7 @@ import axios from 'axios';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
+import Swal from 'sweetalert2'
 
 import Attribute from '../Attribute/Attribute';
 import CharacterName from '../CharacterName/CharacterName';
@@ -23,15 +24,27 @@ function CharacterDisplayPage() {
     }
 
     const handleDelete = () => {
-        const config = {
-            headers: { 'Content-Type': 'application/json' },
-            withCredentials: true,
-          };
-        axios.delete(`/api/character/${character.id}`, config)
-        .then(response => {
-            history.push('/character-selection');
-        }).catch(error => {
-            console.log('Error in DELETE', error);
+        Swal.fire({
+            title: "Delete character?",
+            text: "This cannot be undone!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#d33",
+            cancelButtonColor: "#3085d6",
+            confirmButtonText: "Delete character"
+        }).then(result => {
+            if (result.isConfirmed) {
+                const config = {
+                    headers: { 'Content-Type': 'application/json' },
+                    withCredentials: true,
+                  };
+                axios.delete(`/api/character/${character.id}`, config)
+                .then(response => {
+                    history.push('/character-selection');
+                }).catch(error => {
+                    console.log('Error in DELETE', error);
+                });
+            }
         });
     }
 
