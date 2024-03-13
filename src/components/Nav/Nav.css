@@ -30,6 +30,10 @@
   outline: 0;
 }
 
+button.navLink {
+  height: 61px;
+}
+
 .navLink:hover {
   background-color: #3700b3;
 }
@@ -38,4 +42,5 @@
   color: #ffffff;
   font-size: 1.2rem;
   font-weight: bold;
+  margin: 0;
 }

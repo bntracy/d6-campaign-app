@@ -7,8 +7,7 @@ import { useSelector } from 'react-redux';
 function Nav() {
   const user = useSelector((store) => store.user);
 
-  return (
-    <div>
+  return (<>
       <div  className="nav">
         {/* If no user is logged in, show these links */}
         {!user.id && (
@@ -28,8 +27,7 @@ function Nav() {
             <LogOutButton className="navLink" />
           </>
         )}
-      </div>
-    </div>
+      </div></>
   );
 }
 
