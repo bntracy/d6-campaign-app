@@ -10,6 +10,7 @@ const passport = require('./strategies/user.strategy');
 // Route Includes
 const characterRouter = require('./routes/character.router');
 const characterListRouter = require('./routes/characterList.router');
+const skillsRouter = require('./routes/skills.router');
 const userRouter = require('./routes/user.router');
 
 // Express Middleware
@@ -27,6 +28,7 @@ app.use(passport.session());
 // Routes
 app.use('/api/character', characterRouter);
 app.use('/api/character-list', characterListRouter);
+app.use('/api/skills', skillsRouter);
 app.use('/api/user', userRouter);
 
 // Listen Server & Port

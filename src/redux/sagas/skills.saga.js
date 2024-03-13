@@ -8,7 +8,7 @@ function* addSkill(action) {
             withCredentials: true,
           };
         yield axios.post('/api/skills/', action.payload, config);
-        // TODO: fetch the character
+        yield put({type: 'FETCH_CHARACTER', payload: action.payload.character_id});
     }
     catch (error) {
         console.log('Error adding skill', error);

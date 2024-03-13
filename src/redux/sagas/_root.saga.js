@@ -3,6 +3,7 @@ import characterListSaga from './characterList.saga'
 import characterSaga from './character.saga';
 import loginSaga from './login.saga';
 import registrationSaga from './registration.saga';
+import skillsSaga from './skills.saga';
 import userSaga from './user.saga';
 
 // rootSaga is the primary saga.
@@ -18,6 +19,7 @@ export default function* rootSaga() {
     registrationSaga(),
     userSaga(),
     characterListSaga(),
-    characterSaga()
+    characterSaga(),
+    skillsSaga()
   ]);
 }
