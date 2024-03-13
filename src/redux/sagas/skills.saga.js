@@ -29,9 +29,24 @@ function* updateSkill(action) {
     }
 }
 
+function* deleteSkill(action) {
+    try {
+        const config = {
+            headers: { 'Content-Type': 'application/json' },
+            withCredentials: true,
+          };
+        yield axios.delete(`/api/skills/${action.payload.id}`, config);
+        yield put({type: 'FETCH_CHARACTER', payload: action.payload.character_id});
+    }
+    catch (error) {
+        console.log('Error deleting skill', error);
+    }
+}
+
 function* skillsSaga() {
     yield takeLatest('ADD_SKILL', addSkill);
-    yield takeLatest('UPDATE_SKILL', updateSkill)
+    yield takeLatest('UPDATE_SKILL', updateSkill);
+    yield takeLatest('DELETE_SKILL', deleteSkill);
 }
 
 export default skillsSaga;

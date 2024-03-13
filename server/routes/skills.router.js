@@ -28,4 +28,16 @@ router.put('/', rejectUnauthenticated, (req, res) => {
     });
 });
 
+router.delete('/:id', rejectUnauthenticated, (req, res) => {
+    const sqlQuery = `DELETE FROM "skills" WHERE id=$1`;
+    pool.query(sqlQuery, [req.params.id])
+    .then(response => {
+        res.sendStatus(204);
+    })
+    .catch(error => {
+        console.log('Error deleting skill', error);
+        res.sendStatus(500);
+    });
+})
+
 module.exports = router;

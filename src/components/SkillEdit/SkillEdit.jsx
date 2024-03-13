@@ -21,13 +21,24 @@ function SkillEdit( {skill, setIsEditing} ) {
         setIsEditing(false);
     }
 
+    const handleDelete = () => {
+        dispatch({
+            type: 'DELETE_SKILL',
+            payload: {
+                id: skill.id,
+                character_id: skill.character_id
+            }
+        });
+        setIsEditing(false);
+    }
+
     return <>
         <form onSubmit={event => handleSave(event)}>
             <input type="text" value={newSkillName} onChange={event => setNewSkillName(event.target.value)}/>
             <input type="number" value={newSkillDice} onChange={event => setNewSkillDice(event.target.value)}/>D+
             <input type="number" value={newSkillBonus} onChange={event => setNewSkillBonus(event.target.value)}/>
             <button type="submit">Save</button>
-            <button type="button">Delete Skill</button>
+            <button type="button" onClick={handleDelete}>Delete Skill</button>
             <button type="button" onClick={()=>setIsEditing(false)}>Cancel</button>
         </form>
     </>;
