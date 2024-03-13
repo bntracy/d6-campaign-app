@@ -1,6 +1,7 @@
+import axios from 'axios';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 
 import Attribute from '../Attribute/Attribute';
 import CharacterName from '../CharacterName/CharacterName';
@@ -10,16 +11,28 @@ import TextComponent from '../TextComponent/TextComponent';
 
 function CharacterDisplayPage() {
     const dispatch = useDispatch();
+    const history = useHistory();
     const { id } = useParams();
     const character = useSelector(store => store.character);
-    const characterList = useSelector(store => store.characterList);
-    const user = useSelector(store => store.user);
 
     const fetchSingleCharacter = () => {
         // clear it out on page load
         dispatch({type: 'CLEAR_CHARACTER'});
         
         dispatch({type: 'FETCH_CHARACTER', payload: id});
+    }
+
+    const handleDelete = () => {
+        const config = {
+            headers: { 'Content-Type': 'application/json' },
+            withCredentials: true,
+          };
+        axios.delete(`/api/character/${character.id}`, config)
+        .then(response => {
+            history.push('/character-selection');
+        }).catch(error => {
+            console.log('Error in DELETE', error);
+        });
     }
 
     useEffect(fetchSingleCharacter, []);
@@ -38,6 +51,9 @@ function CharacterDisplayPage() {
             <TextComponent property="special_abilities" label="Special Abilities"/>
             <TextComponent property="equipment" label="Equipment"/>
             <TextComponent property="notes" label="Notes"/>
+            <div>
+                <button type="button" onClick={handleDelete}>Delete Character</button>
+            </div>
         </>
         : <p>No character data</p>}
     </>;
