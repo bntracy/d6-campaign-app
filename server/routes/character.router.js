@@ -103,13 +103,18 @@ router.get('/:id', rejectUnauthenticated, (req, res) => {
 
   router.delete('/:id', rejectUnauthenticated, (req, res) => {
     const firstSqlQuery = `SELECT "user_id" FROM "character" WHERE id=$1`;
-    const secondSqlQuery = `DELETE FROM "character" WHERE id=$1`;
+    const secondSqlQuery = `DELETE FROM "skills" WHERE character_id=$1`;
+    const thirdSqlQuery = `DELETE FROM "character" WHERE id=$1`;
     pool.query(firstSqlQuery, [req.params.id])
     .then(response => {
       if (req.user.id === response.rows[0].user_id || req.user.access_level === 1) {
         pool.query(secondSqlQuery, [req.params.id])
         .then(response => {
-          res.sendStatus(204);
+          pool.query(thirdSqlQuery, [req.params.id]).then(response => {
+            res.sendStatus(204);
+          }).catch(error => {
+            console.log('Error deleting data', error);
+          });
         })
         .catch(error => {
           console.log('Error deleting data', error);
