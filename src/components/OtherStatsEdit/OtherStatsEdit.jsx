@@ -30,7 +30,7 @@ function OtherStatsEdit( {setIsEditing} ) {
         <form onSubmit={event => handleSave(event)}>
             <div>
                 <label>Move: </label>
-                <input type="number" value={newMove} onChange={event => setNewMove(event.target.value)}/>
+                <input type="number" value={newMove || ''} onChange={event => setNewMove(event.target.value)}/>
             </div>
             <div>
                 <label>Force Sensitive? </label>
@@ -38,15 +38,15 @@ function OtherStatsEdit( {setIsEditing} ) {
             </div>
             <div>
                 <label>Force Points: </label>
-                <input type="number" value={newForcePoints} onChange={event => setNewForcePoints(event.target.value)}/>
+                <input type="number" value={newForcePoints || ''} onChange={event => setNewForcePoints(event.target.value)}/>
             </div>
             <div>
                 <label>Dark Side Points: </label>
-                <input type="number" value={newDarkSidePoints} onChange={event => setNewDarkSidePoints(event.target.value)}/>
+                <input type="number" value={newDarkSidePoints || ''} onChange={event => setNewDarkSidePoints(event.target.value)}/>
             </div>
             <div>
                 <label>Character Points: </label>
-                <input type="number" value={newCharacterPoints} onChange={event => setNewCharacterPoints(event.target.value)}/>
+                <input type="number" value={newCharacterPoints || ''} onChange={event => setNewCharacterPoints(event.target.value)}/>
             </div>
             <button type="submit">Save</button>
             <button type="button" onClick={()=>setIsEditing(false)}>Cancel</button>

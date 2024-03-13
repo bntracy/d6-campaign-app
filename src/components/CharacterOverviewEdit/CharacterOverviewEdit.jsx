@@ -32,27 +32,27 @@ function CharacterOverviewEdit( {setIsEditing} ) {
         <form onSubmit={event => handleSave(event)}>
             <div>
                 <label>Species: </label>
-                <input type="text" value={newSpecies} onChange={event => setNewSpecies(event.target.value)}/>
+                <input type="text" value={newSpecies || ''} onChange={event => setNewSpecies(event.target.value)}/>
             </div>
             <div>
                 <label>Gender: </label>
-                <input type="text" value={newGender} onChange={event => setNewGender(event.target.value)}/>
+                <input type="text" value={newGender || ''} onChange={event => setNewGender(event.target.value)}/>
             </div>
             <div>
                 <label>Age: </label>
-                <input type="text" value={newAge} onChange={event => setNewAge(event.target.value)}/>
+                <input type="text" value={newAge || ''} onChange={event => setNewAge(event.target.value)}/>
             </div>
             <div>
                 <label>Height: </label>
-                <input type="text" value={newHeight} onChange={event => setNewHeight(event.target.value)}/>
+                <input type="text" value={newHeight || ''} onChange={event => setNewHeight(event.target.value)}/>
             </div>
             <div>
                 <label>Weight: </label>
-                <input type="text" value={newWeight} onChange={event => setNewWeight(event.target.value)}/>
+                <input type="text" value={newWeight || ''} onChange={event => setNewWeight(event.target.value)}/>
             </div>
             <div>
                 <label>Physical Description: </label>
-                <input type="text" value={newPhysicalDescription} onChange={event => setNewPhysicalDescription(event.target.value)}/>
+                <input type="text" value={newPhysicalDescription || ''} onChange={event => setNewPhysicalDescription(event.target.value)}/>
             </div>
             <button type="submit">Save</button>
             <button type="button" onClick={()=>setIsEditing(false)}>Cancel</button>

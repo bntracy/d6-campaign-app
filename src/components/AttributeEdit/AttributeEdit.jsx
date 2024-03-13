@@ -23,9 +23,9 @@ function AttributeEdit( {attribute, dice, bonus, setIsEditing} ) {
     return <>
         <form onSubmit={event => handleSave(event)}>
             <h4>{attribute}:</h4>
-                <input type="number" value={newDice} onChange={event => setNewDice(event.target.value)}/>
+                <input type="number" value={newDice || ''} onChange={event => setNewDice(event.target.value)}/>
                 D+
-                <input type="number" value={newBonus} onChange={event => setNewBonus(event.target.value)}/>
+                <input type="number" value={newBonus || ''} onChange={event => setNewBonus(event.target.value)}/>
             <button type="submit">Save</button>
             <button type="button" onClick={()=>setIsEditing(false)}>Cancel</button>
         </form>
