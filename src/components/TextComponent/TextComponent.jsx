@@ -11,7 +11,7 @@ function TextComponent({ property, label }) {
         <h4>{label}:</h4>
         { isEditing? <TextComponentEdit setIsEditing={setIsEditing} propertyToChange={property}/> : <>
             <p>{character[property]}</p>
-            <button onClick={() => setIsEditing(true)}>Edit</button>
+            <button type="button" onClick={() => setIsEditing(true)}>Edit</button>
         </>}
     </>;
 }

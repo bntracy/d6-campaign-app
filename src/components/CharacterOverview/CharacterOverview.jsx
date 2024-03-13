@@ -15,7 +15,7 @@ function CharacterOverview() {
         <div>Height: {character.height}</div>
         <div>Weight: {character.weight}</div>
         <div>Physical Description: {character.physical_description}</div>
-        <button onClick={() => setIsEditing(true)}>Edit</button></>}
+        <button type="button" onClick={() => setIsEditing(true)}>Edit</button></>}
     </>;
 }
 

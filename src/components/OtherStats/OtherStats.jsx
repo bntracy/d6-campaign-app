@@ -14,7 +14,7 @@ function OtherStats() {
         <div>Force Points: {character.force_points}</div>
         <div>Dark Side Points: {character.dark_side_points}</div>
         <div>Character Points: {character.character_points}</div>
-        <button onClick={() => setIsEditing(true)}>Edit</button></>}
+        <button type="button" onClick={() => setIsEditing(true)}>Edit</button></>}
     </>;
 
 }

@@ -29,11 +29,11 @@ function CharacterSelectionPage() {
                     {characterList.map(character => <tr key={character.id}>
                         <td>{character.username}</td>
                         <td>{character.character_name}</td>
-                        <td><button onClick={() => history.push(`/character/${character.id}`)}>Select</button></td>
+                        <td><button type="button" onClick={() => history.push(`/character/${character.id}`)}>Select</button></td>
                     </tr>)}
                 </tbody>
             </table>}
-        <button onClick={()=>history.push('/new')}>Create New Character</button>
+        <button type="button" onClick={()=>history.push('/new')}>Create New Character</button>
     </>;
 }
 

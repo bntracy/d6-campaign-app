@@ -7,7 +7,7 @@ function Skill( {skill} ) {
 
     return <>
         {isEditing ? <SkillEdit skill={skill} setIsEditing={setIsEditing}/> :
-        <li>{skill.skill_name} {skill.skill_dice}D{skill.skill_bonus > 0 && <>+{skill.skill_bonus}</>} <button onClick={() => setIsEditing(true)}>Edit</button></li>}
+        <li>{skill.skill_name} {skill.skill_dice}D{skill.skill_bonus > 0 && <>+{skill.skill_bonus}</>} <button type="button" onClick={() => setIsEditing(true)}>Edit</button></li>}
     </>;
 }
 
