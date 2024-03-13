@@ -26,8 +26,9 @@ function SkillEdit( {skill, setIsEditing} ) {
             <input type="text" value={newSkillName} onChange={event => setNewSkillName(event.target.value)}/>
             <input type="number" value={newSkillDice} onChange={event => setNewSkillDice(event.target.value)}/>D+
             <input type="number" value={newSkillBonus} onChange={event => setNewSkillBonus(event.target.value)}/>
-            <button>Save</button>
-            <button onClick={()=>setIsEditing(false)}>Cancel</button>
+            <button type="submit">Save</button>
+            <button type="button">Delete Skill</button>
+            <button type="button" onClick={()=>setIsEditing(false)}>Cancel</button>
         </form>
     </>;
 }
