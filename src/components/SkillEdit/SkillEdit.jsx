@@ -18,6 +18,9 @@ function SkillEdit( {skill, setIsEditing} ) {
                 skill_bonus: Number(newSkillBonus)
             }
         });
+        setNewSkillName('');
+        setNewSkillDice('');
+        setNewSkillBonus('');
         setIsEditing(false);
     }
 

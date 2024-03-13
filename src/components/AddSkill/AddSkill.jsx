@@ -6,8 +6,8 @@ function AddSkill( {attribute} ) {
     const character = useSelector(store => store.character);
     const [isAdding, setIsAdding] = useState(false);
     const [newSkillName, setNewSkillName] = useState('');
-    const [newSkillDice, setNewSkillDice] = useState('');
-    const [newSkillBonus, setNewSkillBonus] = useState('');
+    const [newSkillDice, setNewSkillDice] = useState(0);
+    const [newSkillBonus, setNewSkillBonus] = useState(0);
 
     const handleSave = event => {
         event.preventDefault();
