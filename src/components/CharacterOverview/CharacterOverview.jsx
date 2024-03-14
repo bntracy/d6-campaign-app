@@ -5,7 +5,6 @@ import CharacterOverviewEdit from '../CharacterOverviewEdit/CharacterOverviewEdi
 
 import './CharacterOverview.css'
 
-import Divider from '@mui/material/Divider';
 import EditIcon from '@mui/icons-material/Edit';
 import IconButton from '@mui/material/IconButton';
 

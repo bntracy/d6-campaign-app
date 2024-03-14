@@ -2,12 +2,16 @@ import { useState } from 'react';
 
 import SkillEdit from '../SkillEdit/SkillEdit';
 
+import EditIcon from '@mui/icons-material/Edit';
+import IconButton from '@mui/material/IconButton';
+
 function Skill( {skill} ) {
     const [isEditing, setIsEditing] = useState(false);
 
     return <>
         {isEditing ? <SkillEdit skill={skill} setIsEditing={setIsEditing}/> :
-        <li>{skill.skill_name} {skill.skill_dice}D{skill.skill_bonus > 0 && <>+{skill.skill_bonus}</>} <button type="button" onClick={() => setIsEditing(true)}>Edit</button></li>}
+        <li>{skill.skill_name} {skill.skill_dice}D{skill.skill_bonus > 0 && <>+{skill.skill_bonus}</>}
+        <IconButton size="small" sx="margin-bottom: 2px; padding-top: 0px" type="button" onClick={() => setIsEditing(true)}><EditIcon fontSize="inherit"/></IconButton></li>}
     </>;
 }
 
