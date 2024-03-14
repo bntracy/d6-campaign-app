@@ -3,6 +3,9 @@ import { useSelector } from 'react-redux';
 
 import CharacterNameEdit from '../CharacterNameEdit/CharacterNameEdit';
 
+import EditIcon from '@mui/icons-material/Edit';
+import IconButton from '@mui/material/IconButton';
+
 function CharacterName() {
     const character = useSelector(store => store.character);
     const [isEditing, setIsEditing] = useState(false);
@@ -10,7 +13,7 @@ function CharacterName() {
     return <>
         {isEditing ? <CharacterNameEdit setIsEditing={setIsEditing}/> : <>
             <h1>{character.character_name}</h1>
-            <button type="button" onClick={() => setIsEditing(true)}>Edit Name</button>
+            <IconButton type="button" onClick={() => setIsEditing(true)}><EditIcon /></IconButton>
         </>}
     </>;
 }
