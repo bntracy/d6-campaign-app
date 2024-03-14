@@ -33,7 +33,7 @@ function CharacterSelectionPage() {
                     {characterList.map(character => <tr key={character.id}>
                         <td>{character.username}</td>
                         <td>{character.character_name}</td>
-                        <td><button type="button" onClick={() => history.push(`/character/${character.id}`)}>Select</button></td>
+                        <td><Button type="button" onClick={() => history.push(`/character/${character.id}`)}>Select</Button></td>
                     </tr>)}
                 </tbody>
             </table>}
