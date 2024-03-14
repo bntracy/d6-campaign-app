@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
+import Button from '@mui/material/Button';
+
 function AddSkill( {attribute} ) {
     const dispatch = useDispatch();
     const character = useSelector(store => store.character);
@@ -37,7 +39,7 @@ function AddSkill( {attribute} ) {
             <button type="button" onClick={() => setIsAdding(false)}>Cancel</button>
             <button type="submit">Save</button>
           </form></> 
-        : <button type="button" onClick={() => setIsAdding(true)}>Add Skill</button>}
+        : <Button sx="margin-left: 1rem;" type="button" onClick={() => setIsAdding(true)}>Add Skill</Button>}
         
     </>;
 }
