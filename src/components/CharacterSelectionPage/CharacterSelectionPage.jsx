@@ -2,6 +2,10 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
+import './CharacterSelectionPage.css';
+
+import Button from '@mui/material/Button';
+
 function CharacterSelectionPage() {
     const dispatch = useDispatch();
     const history = useHistory();
@@ -33,7 +37,9 @@ function CharacterSelectionPage() {
                     </tr>)}
                 </tbody>
             </table>}
-        <button type="button" onClick={()=>history.push('/new')}>Create New Character</button>
+        <div className="button-container">
+            <Button variant="contained" type="button" onClick={()=>history.push('/new')}>Create New Character</Button>
+        </div>
     </>;
 }
 
