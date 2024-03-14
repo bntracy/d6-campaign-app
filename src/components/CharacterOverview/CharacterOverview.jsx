@@ -5,8 +5,7 @@ import CharacterOverviewEdit from '../CharacterOverviewEdit/CharacterOverviewEdi
 
 import './CharacterOverview.css'
 
-import EditIcon from '@mui/icons-material/Edit';
-import IconButton from '@mui/material/IconButton';
+import Button from '@mui/material/Button';
 
 function CharacterOverview() {
     const character = useSelector(store => store.character);
@@ -23,7 +22,7 @@ function CharacterOverview() {
         </div>
         <div className="flex-container">
             <div>Physical Description: {character.physical_description}</div>
-            <IconButton size="small" type="button" onClick={() => setIsEditing(true)}><EditIcon fontSize="inherit"/></IconButton>
+            <Button type="button" onClick={() => setIsEditing(true)}>Edit Section</Button>
         </div>
         <hr />
         </>}

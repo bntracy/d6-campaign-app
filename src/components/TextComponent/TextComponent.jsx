@@ -3,6 +3,8 @@ import { useSelector } from 'react-redux';
 
 import TextComponentEdit from '../TextComponentEdit/TextComponentEdit';
 
+import Button from '@mui/material/Button';
+
 function TextComponent({ property, label }) {
     const character = useSelector(store => store.character);
     const [isEditing, setIsEditing] = useState(false);
@@ -11,7 +13,7 @@ function TextComponent({ property, label }) {
         <h4>{label}:</h4>
         { isEditing? <TextComponentEdit setIsEditing={setIsEditing} propertyToChange={property}/> : <>
             <p>{character[property]}</p>
-            <button type="button" onClick={() => setIsEditing(true)}>Edit</button>
+            <Button type="button" onClick={() => setIsEditing(true)}>Edit Section</Button>
         </>}
     </>;
 }

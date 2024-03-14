@@ -3,6 +3,8 @@ import { useSelector } from 'react-redux';
 
 import OtherStatsEdit from '../OtherStatsEdit/OtherStatsEdit';
 
+import Button from '@mui/material/Button';
+
 function OtherStats() {
     const character = useSelector(store => store.character);
     const [isEditing, setIsEditing] = useState(false);
@@ -14,7 +16,7 @@ function OtherStats() {
         <div>Force Points: {character.force_points}</div>
         <div>Dark Side Points: {character.dark_side_points}</div>
         <div>Character Points: {character.character_points}</div>
-        <button type="button" onClick={() => setIsEditing(true)}>Edit</button></>}
+        <Button type="button" onClick={() => setIsEditing(true)}>Edit Section</Button></>}
     </>;
 
 }
