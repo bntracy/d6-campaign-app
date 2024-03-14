@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
+import Checkbox from '@mui/material/Checkbox';
+
 function WoundedStatus() {
     const dispatch = useDispatch();
     const character = useSelector(store => store.character);
@@ -68,20 +70,20 @@ function WoundedStatus() {
     return <>
         <div>
             <label>Stunned: </label>
-            <input type="checkbox" checked={newStunned} onChange={saveStunned}/>
+            <Checkbox checked={newStunned} onChange={saveStunned}/>
         </div>
         <div>
             <label>Wounded: </label>
-            <input type="checkbox" checked={newWounded1} onChange={saveWounded1}/>
-            <input type="checkbox" checked={newWounded2} onChange={saveWounded2}/>
+            <Checkbox checked={newWounded1} onChange={saveWounded1}/>
+            <Checkbox sx="padding-left: 0px" checked={newWounded2} onChange={saveWounded2}/>
         </div>
         <div>
             <label>Incapacitated: </label>
-            <input type="checkbox" checked={newIncapacitated} onChange={saveIncapacitated}/>
+            <Checkbox checked={newIncapacitated} onChange={saveIncapacitated}/>
         </div>
         <div>
             <label>Mortally Wounded: </label>
-            <input type="checkbox" checked={newMortallyWounded} onChange={saveMortallyWounded}/>
+            <Checkbox checked={newMortallyWounded} onChange={saveMortallyWounded}/>
         </div>
     </>;
 }
