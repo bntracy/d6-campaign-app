@@ -12,6 +12,8 @@ import OtherStats from '../OtherStats/OtherStats';
 import TextComponent from '../TextComponent/TextComponent';
 import WoundedStatus from '../WoundedStatus/WoundedStatus';
 
+import Button from '@mui/material/Button';
+
 function CharacterDisplayPage() {
     const dispatch = useDispatch();
     const history = useHistory();
@@ -95,7 +97,7 @@ function CharacterDisplayPage() {
                     <WoundedStatus />
                 </Grid>
                 <Grid xs={3}>
-                    <button type="button" onClick={handleDelete}>Delete Character</button>
+                    <Button sx="margin-top: 7.5rem;" variant="outlined"type="button" onClick={handleDelete}>Delete Character</Button>
                 </Grid>
             </Grid>
         </>
