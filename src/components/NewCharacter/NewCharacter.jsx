@@ -2,6 +2,11 @@ import axios from 'axios';
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
+
+import './NewCharacter.css';
+
 function NewCharacter() {
     const history = useHistory();
     const [newCharacterName, setNewCharacterName] = useState('');
@@ -38,36 +43,31 @@ function NewCharacter() {
     return <>
         <h1>New Character</h1>
         <form onSubmit={event => handleSubmit(event)}>
-            <div>
-                <label>Character Name (required):</label>
-                <input type="text" value={newCharacterName} onChange={event => setNewCharacterName(event.target.value)} required />
+            <div className="centering-div">
+                <TextField sx="width: 25%" label="Character Name (required)" value={newCharacterName} onChange={event => setNewCharacterName(event.target.value)} required />
             </div>
-            <div>
-                <label>Species:</label>
-                <input type="text" value={newSpecies} onChange={event => setNewSpecies(event.target.value)} />
+            <div className="centering-div">
+                <TextField label="Species" value={newSpecies} onChange={event => setNewSpecies(event.target.value)} />
             </div>
-            <div>
-                <label>Gender:</label>
-                <input type="text" value={newGender} onChange={event => setNewGender(event.target.value)} />
+            <div className="centering-div">
+                <TextField label="Gender" value={newGender} onChange={event => setNewGender(event.target.value)} />
             </div>
-            <div>
-                <label>Age:</label>
-                <input type="text" value={newAge} onChange={event => setNewAge(event.target.value)} />
+            <div className="centering-div">
+                <TextField label="Age" value={newAge} onChange={event => setNewAge(event.target.value)} />
             </div>
-            <div>
-                <label>Height:</label>
-                <input type="text" value={newHeight} onChange={event => setNewHeight(event.target.value)} />
+            <div className="centering-div">
+                <TextField label="Height" value={newHeight} onChange={event => setNewHeight(event.target.value)} />
             </div>
-            <div>
-                <label>Weight:</label>
-                <input type="text" value={newWeight} onChange={event => setNewWeight(event.target.value)} />
+            <div className="centering-div">
+                <TextField label="Weight" value={newWeight} onChange={event => setNewWeight(event.target.value)} />
             </div>
-            <div>
-                <label>Physical Description:</label>
-                <input type="text" value={newPhysicalDescription} onChange={event => setNewPhysicalDescription(event.target.value)} />
+            <div className="centering-div">
+                <TextField sx="width: 25%" label="Physical Description" value={newPhysicalDescription} onChange={event => setNewPhysicalDescription(event.target.value)} />
             </div>
-            <button type="submit">Save</button>
-            <button type="button" onClick={()=>history.push('/character-selection')}>Cancel</button>
+            <div className="centering-div">
+                <Button variant="contained" type="submit">Save</Button>
+                <Button type="button" sx="margin-left: 1rem;" onClick={()=>history.push('/character-selection')}>Cancel</Button>
+            </div>
         </form>
     </>;
 }
