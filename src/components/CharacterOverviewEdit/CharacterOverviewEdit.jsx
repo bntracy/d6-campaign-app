@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
+
 function CharacterOverviewEdit( {setIsEditing} ) {
     const dispatch = useDispatch();
     const character = useSelector(store => store.character);
@@ -31,32 +34,21 @@ function CharacterOverviewEdit( {setIsEditing} ) {
     return <>
         <form onSubmit={event => handleSave(event)}>
             <div>
-                <label>Species: </label>
-                <input type="text" value={newSpecies || ''} onChange={event => setNewSpecies(event.target.value)}/>
+                <TextField label="Species" value={newSpecies || ''} onChange={event => setNewSpecies(event.target.value)}/>
+                <TextField label="Gender" value={newGender || ''} onChange={event => setNewGender(event.target.value)}/>
+                <TextField label="Age" value={newAge || ''} onChange={event => setNewAge(event.target.value)}/>
+                <TextField label="Height" value={newHeight || ''} onChange={event => setNewHeight(event.target.value)}/>
+                <TextField label="Weight" value={newWeight || ''} onChange={event => setNewWeight(event.target.value)}/>
             </div>
             <div>
-                <label>Gender: </label>
-                <input type="text" value={newGender || ''} onChange={event => setNewGender(event.target.value)}/>
+                <TextField label="Physical Description" sx="width: 80%" value={newPhysicalDescription || ''} onChange={event => setNewPhysicalDescription(event.target.value)}/>
             </div>
-            <div>
-                <label>Age: </label>
-                <input type="text" value={newAge || ''} onChange={event => setNewAge(event.target.value)}/>
+            <div className="centering-div">
+                <Button variant="contained" type="submit">Save</Button>
+                <Button type="button" onClick={()=>setIsEditing(false)}>Cancel</Button>
             </div>
-            <div>
-                <label>Height: </label>
-                <input type="text" value={newHeight || ''} onChange={event => setNewHeight(event.target.value)}/>
-            </div>
-            <div>
-                <label>Weight: </label>
-                <input type="text" value={newWeight || ''} onChange={event => setNewWeight(event.target.value)}/>
-            </div>
-            <div>
-                <label>Physical Description: </label>
-                <input type="text" value={newPhysicalDescription || ''} onChange={event => setNewPhysicalDescription(event.target.value)}/>
-            </div>
-            <button type="submit">Save</button>
-            <button type="button" onClick={()=>setIsEditing(false)}>Cancel</button>
         </form>
+        <hr/>
     </>;
 }
 
