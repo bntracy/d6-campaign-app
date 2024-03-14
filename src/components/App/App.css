@@ -21,6 +21,11 @@ h1, h2 {
 h4 {
   margin-top: 0;
   margin-left: 1rem;
+  margin-bottom: 0;
+}
+
+ul {
+  margin-top: 0;
 }
 
 .centering-div {
