@@ -5,6 +5,7 @@ import CharacterOverviewEdit from '../CharacterOverviewEdit/CharacterOverviewEdi
 
 import './CharacterOverview.css'
 
+import Divider from '@mui/material/Divider';
 import EditIcon from '@mui/icons-material/Edit';
 import IconButton from '@mui/material/IconButton';
 
@@ -24,7 +25,9 @@ function CharacterOverview() {
         <div className="flex-container">
             <div>Physical Description: {character.physical_description}</div>
             <IconButton size="small" type="button" onClick={() => setIsEditing(true)}><EditIcon fontSize="inherit"/></IconButton>
-        </div></>}
+        </div>
+        <hr />
+        </>}
     </>;
 }
 
