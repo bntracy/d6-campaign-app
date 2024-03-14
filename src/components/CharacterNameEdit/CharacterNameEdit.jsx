@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
+
 function CharacterNameEdit( {setIsEditing} ) {
     const dispatch = useDispatch();
     const character = useSelector(store => store.character);
@@ -21,11 +24,10 @@ function CharacterNameEdit( {setIsEditing} ) {
     return <>
         <form onSubmit={event => handleSave(event)}>
             <div>
-                <label>Character Name:</label>
-                <input type="text" required value={newName} onChange={event => setNewName(event.target.value)}/>
+                <TextField label="Character Name (required)" required value={newName} onChange={event => setNewName(event.target.value)}/>
             </div>
-            <button type="submit">Save</button>
-            <button type="button" onClick={()=>setIsEditing(false)}>Cancel</button>
+            <Button variant="contained" type="submit">Save</Button>
+            <Button sx="margin-left: 1rem;" type="button" onClick={()=>setIsEditing(false)}>Cancel</Button>
         </form>
     </>;
 }

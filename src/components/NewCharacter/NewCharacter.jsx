@@ -64,7 +64,7 @@ function NewCharacter() {
             </div>
             <div className="centering-div">
                 <Button variant="contained" type="submit">Save</Button>
-                <Button type="button" sx="margin-left: 1rem;" onClick={()=>history.push('/character-selection')}>Cancel</Button>
+                <Button sx="margin-left: 1rem;" type="button" onClick={()=>history.push('/character-selection')}>Cancel</Button>
             </div>
         </form>
     </>;
