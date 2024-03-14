@@ -1,6 +1,11 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
+import './AttributeEdit.css'
+
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
+
 function AttributeEdit( {attribute, dice, bonus, setIsEditing} ) {
     const dispatch = useDispatch();
     const character = useSelector(store => store.character);
@@ -23,9 +28,9 @@ function AttributeEdit( {attribute, dice, bonus, setIsEditing} ) {
     return <>
         <form onSubmit={event => handleSave(event)}>
             <h4>{attribute}:</h4>
-                <input type="number" value={newDice || ''} onChange={event => setNewDice(event.target.value)}/>
-                D+
-                <input type="number" value={newBonus || ''} onChange={event => setNewBonus(event.target.value)}/>
+                <TextField type="number" sx="width: 4rem;" value={newDice || ''} onChange={event => setNewDice(event.target.value)}/>
+                <span className="attribute-edit-d">D+</span>
+                <TextField type="number" sx="width: 4rem; margin-left: 1.5rem;" value={newBonus || ''} onChange={event => setNewBonus(event.target.value)}/>
             <button type="submit">Save</button>
             <button type="button" onClick={()=>setIsEditing(false)}>Cancel</button>
         </form>
