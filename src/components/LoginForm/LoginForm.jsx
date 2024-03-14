@@ -46,6 +46,7 @@ function LoginForm() {
       </div>
       <div className="centering-div">
           <TextField
+            type="password"
             label="Password"
             name="password"
             required
