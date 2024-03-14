@@ -3,6 +3,10 @@ table {
     margin-right: auto;
 }
 
+td {
+    padding-left: 2rem;
+}
+
 .button-container {
     display: flex;
     justify-content: center;
