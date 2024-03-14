@@ -5,8 +5,6 @@ import { useHistory } from 'react-router-dom';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 
-import './NewCharacter.css';
-
 function NewCharacter() {
     const history = useHistory();
     const [newCharacterName, setNewCharacterName] = useState('');

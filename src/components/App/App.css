@@ -14,9 +14,19 @@ img {
   max-width: 100%;
 }
 
+h1, h2 {
+  text-align: center;
+}
+
 h4 {
   margin-top: 0;
   margin-left: 1rem;
+}
+
+.centering-div {
+  display: flex;
+  justify-content: center;
+  margin-top: 0.8rem;
 }
 
 /* --------------------------------------------------------------------------------
