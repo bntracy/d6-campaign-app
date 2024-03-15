@@ -13,7 +13,7 @@ function LoginPage() {
 
       <center>
         <Button
-          sx="margin-top: 1.5rem;"
+          sx={{mt: '1.5rem'}}
           type="button"
           onClick={() => {
             history.push('/registration');
