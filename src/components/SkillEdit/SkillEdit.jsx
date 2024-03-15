@@ -1,6 +1,11 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
+import './SkillEdit.css';
+
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
+
 function SkillEdit( {skill, setIsEditing} ) {
     const dispatch = useDispatch();
     const [newSkillName, setNewSkillName] = useState(skill.skill_name);
@@ -37,12 +42,21 @@ function SkillEdit( {skill, setIsEditing} ) {
 
     return <>
         <form onSubmit={event => handleSave(event)}>
-            <input type="text" value={newSkillName} onChange={event => setNewSkillName(event.target.value)}/>
-            <input type="number" value={newSkillDice} onChange={event => setNewSkillDice(event.target.value)}/>D+
-            <input type="number" value={newSkillBonus} onChange={event => setNewSkillBonus(event.target.value)}/>
-            <button type="submit">Save</button>
-            <button type="button" onClick={handleDelete}>Delete Skill</button>
-            <button type="button" onClick={()=>setIsEditing(false)}>Cancel</button>
+            <div className="centering-div">
+                <TextField value={newSkillName} onChange={event => setNewSkillName(event.target.value)}/>
+            </div>
+            <div className="centering-div">
+                <TextField type="number" sx="width: 4rem;" value={newSkillDice} onChange={event => setNewSkillDice(event.target.value)}/>
+                <span className="skill-edit-d">D+</span>
+                <TextField type="number" sx="width: 4rem; margin-left: 1.5rem;" value={newSkillBonus} onChange={event => setNewSkillBonus(event.target.value)}/>
+            </div>
+            <div className="centering-div">
+                <Button variant="contained" type="submit">Save</Button>
+                <Button type="button" onClick={()=>setIsEditing(false)}>Cancel</Button>
+            </div>
+            <div className="centering-div">
+                <Button variant="outlined" type="button" onClick={handleDelete}>Delete Skill</Button>
+            </div>
         </form>
     </>;
 }
