@@ -97,7 +97,7 @@ function CharacterDisplayPage() {
                     <WoundedStatus />
                 </Grid>
                 <Grid xs={3}>
-                    <Button sx="margin-top: 7.5rem;" variant="outlined"type="button" onClick={handleDelete}>Delete Character</Button>
+                    <Button sx={{mt: '7.5rem'}} variant="outlined"type="button" onClick={handleDelete}>Delete Character</Button>
                 </Grid>
             </Grid>
         </>

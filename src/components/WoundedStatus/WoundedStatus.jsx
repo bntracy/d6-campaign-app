@@ -75,7 +75,7 @@ function WoundedStatus() {
         <div>
             <label>Wounded: </label>
             <Checkbox checked={newWounded1} onChange={saveWounded1}/>
-            <Checkbox sx="padding-left: 0px" checked={newWounded2} onChange={saveWounded2}/>
+            <Checkbox sx={{pl: 0}} checked={newWounded2} onChange={saveWounded2}/>
         </div>
         <div>
             <label>Incapacitated: </label>

@@ -15,7 +15,7 @@ function Attribute( {attribute, dice, bonus, skills} ) {
     return <>
         {isEditing ? <AttributeEdit attribute={attribute} dice={dice} bonus={bonus} setIsEditing={setIsEditing}/> : <>
             <h4>{attribute}: {character[dice]}D{character[bonus] > 0 && <>+{character[bonus]}</>}
-            <IconButton size="small" sx="margin-bottom: 4px" type="button" onClick={() => setIsEditing(true)}><EditIcon fontSize="inherit"/></IconButton></h4>
+            <IconButton size="small" sx={{mb: '4px'}} type="button" onClick={() => setIsEditing(true)}><EditIcon fontSize="inherit"/></IconButton></h4>
             {character[skills]?.length > 0 && <ul>{character[skills].map(skill => <Skill key={skill.id} skill={skill}/>)}</ul>}
             </>}
         <AddSkill attribute={attribute}/>

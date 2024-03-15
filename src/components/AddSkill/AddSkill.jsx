@@ -39,7 +39,7 @@ function AddSkill( {attribute} ) {
             <button type="button" onClick={() => setIsAdding(false)}>Cancel</button>
             <button type="submit">Save</button>
           </form></> 
-        : <Button sx="margin-left: 1rem;" type="button" onClick={() => setIsAdding(true)}>Add Skill</Button>}
+        : <Button sx={{ml: '1rem'}} type="button" onClick={() => setIsAdding(true)}>Add Skill</Button>}
         
     </>;
 }
