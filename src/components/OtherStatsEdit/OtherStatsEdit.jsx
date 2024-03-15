@@ -1,6 +1,12 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
+import './OtherStatsEdit.css';
+
+import Button from '@mui/material/Button';
+import Checkbox from '@mui/material/Checkbox';
+import TextField from '@mui/material/TextField';
+
 function OtherStatsEdit( {setIsEditing} ) {
     const dispatch = useDispatch();
     const character = useSelector(store => store.character);
@@ -28,28 +34,30 @@ function OtherStatsEdit( {setIsEditing} ) {
 
     return <>
         <form onSubmit={event => handleSave(event)}>
-            <div>
-                <label>Move: </label>
-                <input type="number" value={newMove || ''} onChange={event => setNewMove(event.target.value)}/>
+            <div className="center-vertical">
+                <span>Move: </span>
+                <TextField type="number" sx="width: 4rem;" value={newMove || ''} onChange={event => setNewMove(event.target.value)}/>
             </div>
             <div>
-                <label>Force Sensitive? </label>
-                <input type="checkbox" checked={newForceSensitive} onChange={()=>setNewForceSensitive(!newForceSensitive)}/>
+                <span>Force Sensitive? </span>
+                <Checkbox checked={newForceSensitive} onChange={()=>setNewForceSensitive(!newForceSensitive)}/>
             </div>
-            <div>
-                <label>Force Points: </label>
-                <input type="number" value={newForcePoints || ''} onChange={event => setNewForcePoints(event.target.value)}/>
+            <div className="center-vertical">
+                <span>Force Points: </span>
+                <TextField type="number" sx="width: 4rem;" value={newForcePoints || ''} onChange={event => setNewForcePoints(event.target.value)}/>
             </div>
-            <div>
-                <label>Dark Side Points: </label>
-                <input type="number" value={newDarkSidePoints || ''} onChange={event => setNewDarkSidePoints(event.target.value)}/>
+            <div className="center-vertical">
+                <span>Dark Side Points: </span>
+                <TextField type="number" sx="width: 4rem;" value={newDarkSidePoints || ''} onChange={event => setNewDarkSidePoints(event.target.value)}/>
             </div>
-            <div>
-                <label>Character Points: </label>
-                <input type="number" value={newCharacterPoints || ''} onChange={event => setNewCharacterPoints(event.target.value)}/>
+            <div className="center-vertical">
+                <span>Character Points: </span>
+                <TextField type="number" sx="width: 4rem;" value={newCharacterPoints || ''} onChange={event => setNewCharacterPoints(event.target.value)}/>
             </div>
-            <button type="submit">Save</button>
-            <button type="button" onClick={()=>setIsEditing(false)}>Cancel</button>
+            <div className="centering-div">
+                <Button variant="contained" type="submit">Save</Button>
+                <Button type="button" onClick={()=>setIsEditing(false)}>Cancel</Button>
+            </div>
         </form>
     </>;
 }
