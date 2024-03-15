@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
 
 function AddSkill( {attribute} ) {
     const dispatch = useDispatch();
@@ -29,15 +30,18 @@ function AddSkill( {attribute} ) {
     return <>
         {isAdding ? <><form onSubmit={event => handleSave(event)}>
             <div>
-                <label>Skill Name: </label>
-                <input type="text" value={newSkillName} onChange={event => setNewSkillName(event.target.value)}/>
-                <label>Value: </label>
-                <input type="number" value={newSkillDice} onChange={event => setNewSkillDice(event.target.value)}/>
-                <label>D+</label>
-                <input type="number" value={newSkillBonus} onChange={event => setNewSkillBonus(event.target.value)}/>
+                <TextField label="Skill Name" value={newSkillName} onChange={event => setNewSkillName(event.target.value)}/>
+                <div className="center-vertical">
+                    <span>Value: </span>
+                    <TextField type="number" sx={{width: '4rem'}} value={newSkillDice} onChange={event => setNewSkillDice(event.target.value)}/>
+                    <span>D+</span>
+                    <TextField type="number" sx={{width: '4rem'}} value={newSkillBonus} onChange={event => setNewSkillBonus(event.target.value)}/>
+                </div>
             </div>
-            <button type="button" onClick={() => setIsAdding(false)}>Cancel</button>
-            <button type="submit">Save</button>
+            <div className="centering-div">
+                <Button variant="contained" type="submit">Save</Button>
+                <Button type="button" onClick={() => setIsAdding(false)}>Cancel</Button>
+            </div>
           </form></> 
         : <Button sx={{ml: '1rem'}} type="button" onClick={() => setIsAdding(true)}>Add Skill</Button>}
         
