@@ -29,9 +29,9 @@ function AttributeEdit( {attribute, dice, bonus, setIsEditing} ) {
         <form onSubmit={event => handleSave(event)}>
             <h4>{attribute}:</h4>
             <div className="centering-div">
-                <TextField type="number" sx="width: 4rem;" value={newDice || ''} onChange={event => setNewDice(event.target.value)}/>
+                <TextField type="number" sx={{width: '4rem'}} value={newDice || ''} onChange={event => setNewDice(event.target.value)}/>
                 <span className="attribute-edit-d">D+</span>
-                <TextField type="number" sx="width: 4rem; margin-left: 1.5rem;" value={newBonus || ''} onChange={event => setNewBonus(event.target.value)}/>
+                <TextField type="number" sx={{width: '4rem', ml: '1.5rem'}} value={newBonus || ''} onChange={event => setNewBonus(event.target.value)}/>
             </div>
             <div className="centering-div">
                 <Button variant="contained" type="submit">Save</Button>

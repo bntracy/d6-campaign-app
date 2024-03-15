@@ -41,7 +41,7 @@ function CharacterOverviewEdit( {setIsEditing} ) {
                 <TextField label="Weight" value={newWeight || ''} onChange={event => setNewWeight(event.target.value)}/>
             </div>
             <div>
-                <TextField label="Physical Description" sx="width: 80%" value={newPhysicalDescription || ''} onChange={event => setNewPhysicalDescription(event.target.value)}/>
+                <TextField label="Physical Description" sx={{width: '80%'}} value={newPhysicalDescription || ''} onChange={event => setNewPhysicalDescription(event.target.value)}/>
             </div>
             <div className="centering-div">
                 <Button variant="contained" type="submit">Save</Button>

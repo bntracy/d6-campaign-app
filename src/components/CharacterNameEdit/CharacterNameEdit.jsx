@@ -27,7 +27,7 @@ function CharacterNameEdit( {setIsEditing} ) {
                 <TextField label="Character Name (required)" required value={newName} onChange={event => setNewName(event.target.value)}/>
             </div>
             <Button variant="contained" type="submit">Save</Button>
-            <Button sx="margin-left: 1rem;" type="button" onClick={()=>setIsEditing(false)}>Cancel</Button>
+            <Button sx={{ml: '1rem'}} type="button" onClick={()=>setIsEditing(false)}>Cancel</Button>
         </form>
     </>;
 }

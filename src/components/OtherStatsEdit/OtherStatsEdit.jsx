@@ -36,7 +36,7 @@ function OtherStatsEdit( {setIsEditing} ) {
         <form onSubmit={event => handleSave(event)}>
             <div className="center-vertical">
                 <span>Move: </span>
-                <TextField type="number" sx="width: 4rem;" value={newMove || ''} onChange={event => setNewMove(event.target.value)}/>
+                <TextField type="number" sx={{width: '4rem'}} value={newMove || ''} onChange={event => setNewMove(event.target.value)}/>
             </div>
             <div>
                 <span>Force Sensitive? </span>
@@ -44,15 +44,15 @@ function OtherStatsEdit( {setIsEditing} ) {
             </div>
             <div className="center-vertical">
                 <span>Force Points: </span>
-                <TextField type="number" sx="width: 4rem;" value={newForcePoints || ''} onChange={event => setNewForcePoints(event.target.value)}/>
+                <TextField type="number" sx={{width: '4rem'}} value={newForcePoints || ''} onChange={event => setNewForcePoints(event.target.value)}/>
             </div>
             <div className="center-vertical">
                 <span>Dark Side Points: </span>
-                <TextField type="number" sx="width: 4rem;" value={newDarkSidePoints || ''} onChange={event => setNewDarkSidePoints(event.target.value)}/>
+                <TextField type="number" sx={{width: '4rem'}} value={newDarkSidePoints || ''} onChange={event => setNewDarkSidePoints(event.target.value)}/>
             </div>
             <div className="center-vertical">
                 <span>Character Points: </span>
-                <TextField type="number" sx="width: 4rem;" value={newCharacterPoints || ''} onChange={event => setNewCharacterPoints(event.target.value)}/>
+                <TextField type="number" sx={{width: '4rem'}} value={newCharacterPoints || ''} onChange={event => setNewCharacterPoints(event.target.value)}/>
             </div>
             <div className="centering-div">
                 <Button variant="contained" type="submit">Save</Button>

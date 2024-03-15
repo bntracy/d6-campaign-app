@@ -46,9 +46,9 @@ function SkillEdit( {skill, setIsEditing} ) {
                 <TextField value={newSkillName} onChange={event => setNewSkillName(event.target.value)}/>
             </div>
             <div className="centering-div">
-                <TextField type="number" sx="width: 4rem;" value={newSkillDice} onChange={event => setNewSkillDice(event.target.value)}/>
+                <TextField type="number" sx={{width: '4rem'}} value={newSkillDice} onChange={event => setNewSkillDice(event.target.value)}/>
                 <span className="skill-edit-d">D+</span>
-                <TextField type="number" sx="width: 4rem; margin-left: 1.5rem;" value={newSkillBonus} onChange={event => setNewSkillBonus(event.target.value)}/>
+                <TextField type="number" sx={{width: '4rem', ml: '1.5rem'}} value={newSkillBonus} onChange={event => setNewSkillBonus(event.target.value)}/>
             </div>
             <div className="centering-div">
                 <Button variant="contained" type="submit">Save</Button>

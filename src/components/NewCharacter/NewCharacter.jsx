@@ -42,7 +42,7 @@ function NewCharacter() {
         <h1>New Character</h1>
         <form onSubmit={event => handleSubmit(event)}>
             <div className="centering-div">
-                <TextField sx="width: 25%" label="Character Name (required)" value={newCharacterName} onChange={event => setNewCharacterName(event.target.value)} required />
+                <TextField sx={{width: '25%'}} label="Character Name (required)" value={newCharacterName} onChange={event => setNewCharacterName(event.target.value)} required />
             </div>
             <div className="centering-div">
                 <TextField label="Species" value={newSpecies} onChange={event => setNewSpecies(event.target.value)} />
@@ -60,11 +60,11 @@ function NewCharacter() {
                 <TextField label="Weight" value={newWeight} onChange={event => setNewWeight(event.target.value)} />
             </div>
             <div className="centering-div">
-                <TextField sx="width: 25%" label="Physical Description" value={newPhysicalDescription} onChange={event => setNewPhysicalDescription(event.target.value)} />
+                <TextField sx={{width: '25%'}} label="Physical Description" value={newPhysicalDescription} onChange={event => setNewPhysicalDescription(event.target.value)} />
             </div>
             <div className="centering-div">
                 <Button variant="contained" type="submit">Save</Button>
-                <Button sx="margin-left: 1rem;" type="button" onClick={()=>history.push('/character-selection')}>Cancel</Button>
+                <Button sx={{ml: '1rem'}} type="button" onClick={()=>history.push('/character-selection')}>Cancel</Button>
             </div>
         </form>
     </>;
