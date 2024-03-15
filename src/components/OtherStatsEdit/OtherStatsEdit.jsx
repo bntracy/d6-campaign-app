@@ -40,7 +40,7 @@ function OtherStatsEdit( {setIsEditing} ) {
             </div>
             <div>
                 <span>Force Sensitive? </span>
-                <Checkbox checked={newForceSensitive} onChange={()=>setNewForceSensitive(!newForceSensitive)}/>
+                <Checkbox checked={newForceSensitive || false} onChange={()=>setNewForceSensitive(!newForceSensitive)}/>
             </div>
             <div className="center-vertical">
                 <span>Force Points: </span>
