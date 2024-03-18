@@ -11,7 +11,7 @@ function DiceResult() {
             <div>
                 <p>Roll Result:{diceRoll && <>
                     <span className="large">{diceRoll.sum}</span>
-                    {diceRoll.diceArray.map(die => <>{die}+</>)}
+                    {diceRoll?.diceArray?.map((die, index) => <span key={index}>{die}+</span>)}
                     {diceRoll.bonus}
                     <span className="roll-label">{diceRoll.label}</span>
                     {diceRoll.wildDieFlag && <>Wild Die of <span className="wild-die">1</span></>}
