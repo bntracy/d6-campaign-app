@@ -8,6 +8,7 @@ import Swal from 'sweetalert2'
 import Attribute from '../Attribute/Attribute';
 import CharacterName from '../CharacterName/CharacterName';
 import CharacterOverview from '../CharacterOverview/CharacterOverview';
+import DiceResult from '../DiceResult/DiceResult';
 import OtherStats from '../OtherStats/OtherStats';
 import TextComponent from '../TextComponent/TextComponent';
 import WoundedStatus from '../WoundedStatus/WoundedStatus';
@@ -59,6 +60,9 @@ function CharacterDisplayPage() {
             <Grid container spacing={2}>
                 <Grid xs={12} display="flex" justifyContent="center">
                     <CharacterName />
+                </Grid>
+                <Grid xs={12}>
+                    <DiceResult />
                 </Grid>
                 <Grid xs={12}>
                     <CharacterOverview />
