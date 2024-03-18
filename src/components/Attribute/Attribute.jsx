@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import AddSkill from '../AddSkill/AddSkill';
 import AttributeEdit from '../AttributeEdit/AttributeEdit';
@@ -10,11 +10,12 @@ import EditIcon from '@mui/icons-material/Edit';
 import IconButton from '@mui/material/IconButton';
 
 function Attribute( {attribute, dice, bonus, skills} ) {
+    const dispatch = useDispatch();
     const character = useSelector(store => store.character);
     const [isEditing, setIsEditing] = useState(false);
 
     const rollDice = (dice, bonus, label) => {
-        
+        dispatch({type: 'ROLL_DICE', payload: {dice, bonus, label}});
     }
 
     return <>
