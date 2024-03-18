@@ -9,7 +9,7 @@ import TextField from '@mui/material/TextField';
 function DiceResult() {
     const dispatch = useDispatch();
     const diceRoll = useSelector(store => store.diceRoll);
-    const [newDice, setNewDice] = useState(0);
+    const [newDice, setNewDice] = useState(1);
     const [newBonus, setNewBonus] = useState(0);
 
     const rollDice = (dice, bonus, label) => {
