@@ -12,6 +12,7 @@ function DiceResult() {
             {diceRoll.diceArray.map(die => <>{die}+</>)}
             {diceRoll.bonus}
             <span className="roll-label">{diceRoll.label}</span>
+            {diceRoll.wildDieFlag && <>Wild Die of <span className="wild-die">1</span></>}
         </>}</p>
         <hr/>
     </>;
