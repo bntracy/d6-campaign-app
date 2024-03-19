@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import './DiceResult.css'
 
 import Button from '@mui/material/Button';
+import Slide from '@mui/material/Slide';
 import Snackbar from '@mui/material/Snackbar';
 import TextField from '@mui/material/TextField';
 
@@ -24,7 +25,7 @@ function DiceResult() {
 
     return <>
         <hr/>
-        <Snackbar open={open} anchorOrigin={{vertical: 'top', horizontal: 'center'}} autoHideDuration={5000} onClose={()=>setOpen(false)} message="Cannot roll 0 or less dice"/>
+        <Snackbar open={open} anchorOrigin={{vertical: 'top', horizontal: 'center'}} autoHideDuration={5000} onClose={()=>setOpen(false)} TransitionComponent={Slide} message="Cannot roll 0 or less dice"/>
         <div className="dice-container">
             <div>
                 <p>Roll Result:{diceRoll && <>
