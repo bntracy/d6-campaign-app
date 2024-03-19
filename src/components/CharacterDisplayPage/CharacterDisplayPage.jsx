@@ -89,7 +89,7 @@ function CharacterDisplayPage() {
                     <TextComponent property="special_abilities" label="Special Abilities"/>
                 </Grid>
                 <Grid xs={3}>
-                    <TextComponent property="notes" label="Notes"/>
+                    <Button variant="contained" onClick={()=>history.push(`/notes/${id}`)}>Notes</Button>
                 </Grid>
                 <Grid xs={3}>
                     <Attribute attribute="Mechanical" dice="mechanical_dice" bonus="mechanical_bonus" skills="mechanical_skills"/>

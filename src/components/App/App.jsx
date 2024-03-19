@@ -18,6 +18,7 @@ import RegisterPage from '../RegisterPage/RegisterPage';
 import CharacterSelectionPage from '../CharacterSelectionPage/CharacterSelectionPage';
 import CharacterDisplayPage from '../CharacterDisplayPage/CharacterDisplayPage';
 import NewCharacter from '../NewCharacter/NewCharacter';
+import NotesPage from '../NotesPage/NotesPage';
 
 import './App.css';
 
@@ -67,6 +68,14 @@ function App() {
             path="/character/:id"
           >
             <CharacterDisplayPage />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows NotesPage else shows LoginPage
+            exact
+            path="/notes/:id"
+          >
+            <NotesPage />
           </ProtectedRoute>
 
           <ProtectedRoute
