@@ -26,6 +26,7 @@ function* rollDice(action) {
     sum += bonus;
     let result = { diceArray, bonus, sum, label, wildDieFlag };
     yield put({type: 'SET_DICE_ROLL', payload: result});
+    yield put({type: 'ADD_DICE_ROLL', payload: result});
 }
 
 function* dicerollSaga() {
