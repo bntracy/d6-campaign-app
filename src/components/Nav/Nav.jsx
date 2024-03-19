@@ -23,6 +23,9 @@ function Nav() {
             <Link className="navLink" to="/character-selection">
               Character Selection
             </Link>
+            <Link className="navLink" to="/roll-history">
+              Roll History
+            </Link>
             <p className="navText">{user.username}</p>
             <LogOutButton className="navLink" />
           </>

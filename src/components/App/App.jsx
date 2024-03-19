@@ -24,6 +24,7 @@ import './App.css';
 
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
+import RollHistory from '../RollHistory/RollHistory';
 
 const darkTheme = createTheme({
   palette: {
@@ -84,6 +85,14 @@ function App() {
             path="/new"
           >
             <NewCharacter />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows RollHistory else shows LoginPage
+            exact
+            path="/roll-history"
+          >
+            <RollHistory />
           </ProtectedRoute>
 
           <Route
