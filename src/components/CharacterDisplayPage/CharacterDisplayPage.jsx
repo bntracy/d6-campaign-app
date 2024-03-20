@@ -1,6 +1,6 @@
 import axios from 'axios';
 import Grid from '@mui/material/Unstable_Grid2';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
 import Swal from 'sweetalert2'
@@ -14,12 +14,18 @@ import TextComponent from '../TextComponent/TextComponent';
 import WoundedStatus from '../WoundedStatus/WoundedStatus';
 
 import Button from '@mui/material/Button';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
 
 function CharacterDisplayPage() {
     const dispatch = useDispatch();
     const history = useHistory();
     const { id } = useParams();
     const character = useSelector(store => store.character);
+    const [open, setOpen] = useState(false);
 
     const fetchSingleCharacter = () => {
         // clear it out on page load
@@ -28,28 +34,25 @@ function CharacterDisplayPage() {
         dispatch({type: 'FETCH_CHARACTER', payload: id});
     }
 
+    const handleOpen = () => {
+        setOpen(true);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+    };
+
     const handleDelete = () => {
-        Swal.fire({
-            title: "Delete character?",
-            text: "This cannot be undone!",
-            icon: "warning",
-            showCancelButton: true,
-            confirmButtonColor: "#d33",
-            cancelButtonColor: "#3085d6",
-            confirmButtonText: "Delete character"
-        }).then(result => {
-            if (result.isConfirmed) {
-                const config = {
-                    headers: { 'Content-Type': 'application/json' },
-                    withCredentials: true,
-                  };
-                axios.delete(`/api/character/${character.id}`, config)
-                .then(response => {
-                    history.push('/character-selection');
-                }).catch(error => {
-                    console.log('Error in DELETE', error);
-                });
-            }
+        setOpen(false);
+        const config = {
+            headers: { 'Content-Type': 'application/json' },
+            withCredentials: true,
+            };
+        axios.delete(`/api/character/${character.id}`, config)
+        .then(response => {
+            history.push('/character-selection');
+        }).catch(error => {
+            console.log('Error in DELETE', error);
         });
     }
 
@@ -101,11 +104,21 @@ function CharacterDisplayPage() {
                     <WoundedStatus />
                 </Grid>
                 <Grid xs={3}>
-                    <Button sx={{mt: '7.5rem'}} variant="outlined"type="button" onClick={handleDelete}>Delete Character</Button>
+                    <Button sx={{mt: '7.5rem'}} variant="outlined"type="button" onClick={handleOpen}>Delete Character</Button>
                 </Grid>
             </Grid>
         </>
         : <p>No character data</p>}
+        <Dialog open={open} onClose={handleClose}>
+            <DialogTitle>Delete character?</DialogTitle>
+            <DialogContent>
+                <DialogContentText>This cannot be undone.</DialogContentText>
+            </DialogContent>
+            <DialogActions>
+                <Button variant="outlined" onClick={handleDelete}>Delete Character</Button>
+                <Button onClick={handleClose}>Cancel</Button>
+            </DialogActions>
+        </Dialog>
     </>;
 }
 
