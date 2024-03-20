@@ -40,7 +40,7 @@ function DiceResult() {
                 <TextField type="number" sx={{width: '4rem'}} value={newDice} onChange={event => setNewDice(event.target.value)}/>
                 <span>D+</span>
                 <TextField type="number" sx={{width: '4rem'}} value={newBonus} onChange={event => setNewBonus(event.target.value)}/>
-                <Button type="button" onClick={()=>rollDice(Number(newDice), Number(newBonus), "manual entry")}>Roll</Button>
+                <Button type="button" onClick={()=>rollDice(Number(newDice), Number(newBonus), `manual entry (${newDice}D+${newBonus})`)}>Roll</Button>
             </div>
         </div>
         <hr/>
