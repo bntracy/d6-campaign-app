@@ -3,7 +3,6 @@ import Grid from '@mui/material/Unstable_Grid2';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
-import Swal from 'sweetalert2'
 
 import Attribute from '../Attribute/Attribute';
 import CharacterName from '../CharacterName/CharacterName';
@@ -25,7 +24,7 @@ function CharacterDisplayPage() {
     const history = useHistory();
     const { id } = useParams();
     const character = useSelector(store => store.character);
-    const [open, setOpen] = useState(false);
+    const [open, setOpen] = useState(false);    // for the delete character confirmation dialog
 
     const fetchSingleCharacter = () => {
         // clear it out on page load
@@ -34,14 +33,17 @@ function CharacterDisplayPage() {
         dispatch({type: 'FETCH_CHARACTER', payload: id});
     }
 
+    // for the delete character confirmation dialog
     const handleOpen = () => {
         setOpen(true);
     };
 
+    // for the delete character confirmation dialog
     const handleClose = () => {
         setOpen(false);
     };
 
+    // called by the delete character confirmation dialog
     const handleDelete = () => {
         setOpen(false);
         const config = {
