@@ -10,6 +10,7 @@ To see the fully functional site, please visit: [https://shielded-sea-38538-fdc9
 
 ## Screen Shot
 
+![Screenshot 2024-03-25 at 2 10 44 PM](https://github.com/bntracy/d6-campaign-app/assets/6607782/80c6b8da-aaf9-4748-9a82-4f719c975b2c)
 
 
 ### Prerequisites
